@@ -99,8 +99,8 @@ function FourthWing() {
                     <p>
                     She'll need every edge her wits can give her just to see the next {timePeriod}. Yet, with every 
                     day that passes, the war outside grows more deadly, the kingdom's protective {pluralNoun} are 
-                    failing, and the death toll continues to rise. Even worse, {color} begins to suspect leadership is hiding 
-                    {adjectiveFiveArticle} {adjectiveFive} secret. 
+                    failing, and the death toll continues to rise. Even worse, {color} begins to suspect leadership is 
+                    hiding {adjectiveFiveArticle} {adjectiveFive} secret. 
                     </p> 
                     
                     <p>
@@ -112,7 +112,7 @@ function FourthWing() {
                     <br></br>
                     <div className="d-flex justify-content-center">
                         <p>Would you like to create another madlib?</p>
-                        <Link className="btn btn-outline-primary m-4 shadow" to="/fourthwing">Fourth Wing again!</Link>
+                        <Link className="btn btn-outline-primary m-4 shadow" to=".">Fourth Wing again!</Link>
                         <Link className="btn btn-outline-primary m-4 shadow" to="/">A different madlib.</Link>
                     </div>
                 </div>

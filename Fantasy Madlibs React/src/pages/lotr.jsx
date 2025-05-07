@@ -12,7 +12,7 @@ function Lotr() {
         adjectiveTwo:"",
         lastName:"",
         adjectiveEight:"",
-        noun:"",
+        nounOne:"",
         adjectiveFour:"",
         profession:"",
         adjectiveThree:"",
@@ -28,7 +28,7 @@ function Lotr() {
         adjectiveSixArticle:""
     });
     const {verbTwo, adjectiveOne, adjective, amount, liquid, adjectiveTwo, lastName,
-        adjectiveEight, noun, adjectiveFour, profession, adjectiveThree, direction, 
+        adjectiveEight, nounOne, adjectiveFour, profession, adjectiveThree, direction, 
         adjectiveFive, verb, adjectiveSix, pluralNoun, adjectiveSeven, pluralizedNoun, 
         adjectiveThreeArticle, adjectiveEightArticle, adjectiveSixArticle} = madlib;
     const [showMadlib, setShowMadlib] = useState(false);
@@ -63,8 +63,8 @@ function Lotr() {
         const capPlNoun = capitalize(pluralNoun);
         const capDirection = capitalize(direction);
         const capLastName = capitalize(lastName);
-        const capNoun = capitalize(noun);
-        const plCapNoun = capitalize(noun+'s');
+        const capNoun = capitalize(nounOne);
+        const plCapNoun = capitalize(nounOne+'s');
         const plProfession = profession+"s";
         const adjThreeArticle = aOrAn(adjectiveThree);
         const adjSixArticle = aOrAn(adjectiveSix);
@@ -76,11 +76,11 @@ function Lotr() {
             direction: capDirection,
             lastName: capLastName,
             noun: capNoun,
-            plNoun: plCapNoun,
+            pluralizedNoun: plCapNoun,
             profession: plProfession,
             adjectiveThreeArticle: adjThreeArticle,
             adjectiveSixArticle: adjSixArticle,
-            adjectiveEight: adjEightArticle
+            adjectiveEightArticle: adjEightArticle
         });
 
         setShowMadlib(true);
@@ -92,18 +92,18 @@ function Lotr() {
             {showMadlib ? (
                 <div>
                     <p>
-                    One {noun} to rule them all, One {noun} to find them, One {noun} to bring them all and in the darkness {verbTwo} them.
+                    One {nounOne} to rule them all, One {nounOne} to find them, One {nounOne} to bring them all and in the darkness {verbTwo} them.
                     </p>
                     <p>
                     In {adjectiveOne} times the {pluralizedNoun} of Power were crafted by the Elven-{profession}, and Sauron, the {adjective} Lord, forged 
-                    the One {noun}, filling it with his own {liquid} so that he could {verb} all others. But the One {noun} was taken 
+                    the One {nounOne}, filling it with his own {liquid} so that he could {verb} all others. But the One {nounOne} was taken 
                     from him, and though he sought it throughout {direction}-earth, it remained lost to him. After {amount} ages it 
                     fell by chance into the hands of the {adjectiveTwo} Bilbo {lastName}. 
                     </p>
                     <p>
                     In {adjectiveEightArticle} {adjectiveEight} village in the Shire, {adjectiveFour} Frodo {lastName} finds himself faced with {adjectiveThreeArticle} {adjectiveThree} task, as 
-                    his {adjectiveFive} cousin Bilbo entrusts the {noun} to his care. Frodo must leave his home and make 
-                    {adjectiveSixArticle} {adjectiveSix} journey across {direction}-earth to the {pluralNoun} of Doom, there to destroy the {noun} and 
+                    his {adjectiveFive} cousin Bilbo entrusts the {nounOne} to his care. Frodo must leave his home and make 
+                    {adjectiveSixArticle} {adjectiveSix} journey across {direction}-earth to the {pluralNoun} of Doom, there to destroy the {nounOne} and 
                     foil the {adjective} Lord in his {adjectiveSeven} purpose.
                     </p>
                     <br></br>
@@ -217,12 +217,12 @@ function Lotr() {
                         </div>
                         <div className="row w-50 position-relative start-50 translate-middle-x">
                             <div className="text-center mt-5">
-                                <label htmlFor="Name" className="form-label">Noun: </label>
+                                <label htmlFor="Name" className="form-label">Singular Noun: </label>
                                 <input type={"text"} 
                                 className="form-control shadow" 
                                 placeholder="Enter a noun" 
-                                name="noun" 
-                                value={noun}
+                                name="nounOne" 
+                                value={nounOne}
                                 onChange={(e)=>onInputChange(e)}
                                 required></input>
                             </div>
