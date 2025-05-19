@@ -1,17 +1,15 @@
 import {useState} from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
-function Eragon() {
+function GameOfThrones() {
     let navigate = useNavigate();
     const [madlib, setMadlib] = useState({
-        number:"", adjectiveFourArticle:"", adjectiveFour:"", nounTwo:"", adjectiveTwoArticle:"", adjectiveTwo:"", animalArticle:"", animal:"", 
-        nounOneArticle:"", nounOne:"", adjectiveSeven:"", adjectiveOneArticle:"", adjectiveOne:"", adjectiveThree:"", adjectiveSixArticle:"", 
-        adjectiveSix:"", pluralNoun:"", adjectiveFive:""
+        lengthOfTimeOne:"", lengthOfTimeTwo:"", liquid:"", pluralNounOne:"", pluralNounTwo:"", verbOne:"", nounOne:"", adjectiveOne:"",
+        adjectiveTwo:"", pluralNounThree:"", pluralNounFour:"", adjectiveThree:"", adverbOne:"", emotion:"", pluralNounFive:"", adjectiveFour:""
     });
-    const {number, adjectiveFourArticle, adjectiveFour, nounTwo, adjectiveTwoArticle, adjectiveTwo, animalArticle, animal, 
-        nounOneArticle, nounOne, adjectiveSeven, adjectiveOneArticle, adjectiveOne, adjectiveThree, adjectiveSixArticle, 
-        adjectiveSix, pluralNoun, adjectiveFive} = madlib;
+    const {lengthOfTimeOne, lengthOfTimeTwo, liquid, pluralNounOne, pluralNounTwo, verbOne, nounOne, adjectiveOne,
+            adjectiveTwo, pluralNounThree, pluralNounFour, adjectiveThree, adverbOne, emotion, pluralNounFive, adjectiveFour} = madlib;
     const [showMadlib, setShowMadlib] = useState(false);
     
 
@@ -39,21 +37,11 @@ function Eragon() {
     //OnSubmit
     const onSubmit = (e) => {
         e.preventDefault();
-        const adjOneArticle = aOrAn(adjectiveOne);
-        const adjTwoArticle = aOrAn(adjectiveTwo);
-        const adjFourArticle = aOrAn(adjectiveFour);
-        const adjSixArticle = aOrAn(adjectiveSix);
-        const nnOneArticle = aOrAn(nounOne);
-        const aniArticle = aOrAn(animal);
+        
 
         setMadlib({
             ...madlib,
-            adjectiveOneArticle: adjOneArticle,
-            adjectiveTwoArticle: adjTwoArticle,
-            adjectiveFourArticle: adjFourArticle,
-            adjectiveSixArticle: adjSixArticle,
-            nounOneArticle: nnOneArticle,
-            animalArticle: aniArticle
+            
         });
         console.log("Locked and loaded")
 
@@ -62,9 +50,8 @@ function Eragon() {
 
     const resetMadlib = () => {
         setMadlib({
-            number:"", adjectiveFourArticle:"", adjectiveFour:"", nounTwo:"", adjectiveTwoArticle:"", adjectiveTwo:"", animalArticle:"", animal:"", 
-            nounOneArticle:"", nounOne:"", adjectiveSeven:"", adjectiveOneArticle:"", adjectiveOne:"", adjectiveThree:"", adjectiveSixArticle:"", 
-            adjectiveSix:"", pluralNoun:"", adjectiveFive:""
+            lengthOfTimeOne:"", lengthOfTimeTwo:"", liquid:"", pluralNounOne:"", pluralNounTwo:"", verbOne:"", nounOne:"", adjectiveOne:"",
+            adjectiveTwo:"", pluralNounThree:"", pluralNounFour:"", adjectiveThree:"", adverbOne:"", emotion:"", pluralNounFive:"", adjectiveFour:""
         });
         setShowMadlib(false);
     }
@@ -75,14 +62,17 @@ function Eragon() {
             {showMadlib ? (
                 <div>
                     <p>
-                    When {number}-year-old Eragon finds {adjectiveFourArticle} {adjectiveFour} blue {nounTwo} in the forest, he thinks it is the 
-                    lucky discovery of {adjectiveTwoArticle} {adjectiveTwo} farm boy. But when the {nounTwo} brings {animalArticle} {animal} hatchling, 
-                    Eragon soon realizes he has stumbled upon {nounOneArticle} {nounOne} nearly as old as the Empire itself.
+                    In a land where summers can last {lengthOfTimeOne} and winters last {lengthOfTimeTwo}, {liquid} is brewing. 
+                    The cold is returning, and in the frozen {pluralNounOne} to the North of Winterfell, sinister and 
+                    supernatural {pluralNounTwo} are {verbOne} beyond the kingdom's protective {nounOne}. At the center of 
+                    the conflict lie the Starks of Winterfell, a family as {adjectiveOne} and {adjectiveTwo} as the land they were born to. 
                     </p>
                     <p>
-                    Overnight his {adjectiveSeven} life is shattered, and, gifted with only {adjectiveOneArticle} {adjectiveOne} sword, 
-                    a loyal {animal}, and {adjectiveThree} advice from {adjectiveSixArticle} {adjectiveSix} storyteller, Eragon is soon swept into 
-                    a dangerous tapestry of magic, {pluralNoun}, and power. Now his choices could save —or destroy— the {adjectiveFive} Empire.
+                    Sweeping from a land of brutal cold to a distant summertime kingdom, here is a tale of 
+                    lords and ladies, soldiers and {pluralNounThree}, {pluralNounFour} and bastards, who come together in a 
+                    time of {adjectiveThree} omens. Amid plots and counterplots, tragedy and betrayal, {emotion} and {pluralNounFive}, 
+                    the fate of the Starks, their allies, and their enemies hangs {adverbOne} in the 
+                    balance, as each endeavors to win the most {adjectiveFour} of conflicts: The Game of Thrones.
                     </p>
                     <br></br>
                     <br></br>
@@ -91,13 +81,91 @@ function Eragon() {
                         <button onClick={() => setShowMadlib(false)}>Edit</button>
                         <br></br>
                         <p>Would you like to create another madlib?</p>
-                        <button onClick={resetMadlib}>Eragon again!</button>
+                        <button onClick={resetMadlib}>Game of Thrones again!</button>
                         <button onClick={() => navigate("/")}>Literally any other madlib.</button>
                     </div>
                 </div>
             ) : (
                 <div>
                     <form onSubmit={(e)=> onSubmit(e)}>
+                        <div className="row w-50 position-relative start-50 translate-middle-x">
+                            <div className="text-center mt-5">
+                                <label htmlFor="Name" className="form-label">Adjective: </label>
+                                <input type={"text"} 
+                                className="form-control shadow" 
+                                placeholder="Enter an adjective" 
+                                name="adjectiveTwo" 
+                                value={adjectiveTwo}
+                                onChange={(e)=>onInputChange(e)}
+                                required 
+                                autoFocus="true"></input>
+                            </div>
+                        </div>
+                        <div className="row w-50 position-relative start-50 translate-middle-x">
+                            <div className="text-center mt-5">
+                                <label htmlFor="Name" className="form-label">Plural Noun: </label>
+                                <input type={"text"} 
+                                className="form-control shadow" 
+                                placeholder="Enter a plural noun" 
+                                name="pluralNounThree" 
+                                value={pluralNounThree}
+                                onChange={(e)=>onInputChange(e)}
+                                required 
+                                autoFocus="true"></input>
+                            </div>
+                        </div>
+                        <div className="row w-50 position-relative start-50 translate-middle-x">
+                            <div className="text-center mt-5">
+                                <label htmlFor="Name" className="form-label">Adverb: </label>
+                                <input type={"text"} 
+                                className="form-control shadow" 
+                                placeholder="Enter an adverb" 
+                                name="adverbOne" 
+                                value={adverbOne}
+                                onChange={(e)=>onInputChange(e)}
+                                required 
+                                autoFocus="true"></input>
+                            </div>
+                        </div>
+                        <div className="row w-50 position-relative start-50 translate-middle-x">
+                            <div className="text-center mt-5">
+                                <label htmlFor="Name" className="form-label">Length of Time: </label>
+                                <input type={"text"} 
+                                className="form-control shadow" 
+                                placeholder="Enter a length of time" 
+                                name="lengthOfTimeTwo" 
+                                value={lengthOfTimeTwo}
+                                onChange={(e)=>onInputChange(e)}
+                                required 
+                                autoFocus="true"></input>
+                            </div>
+                        </div>
+                        <div className="row w-50 position-relative start-50 translate-middle-x">
+                            <div className="text-center mt-5">
+                                <label htmlFor="Name" className="form-label">Liquid: </label>
+                                <input type={"text"} 
+                                className="form-control shadow" 
+                                placeholder="Enter a liquid" 
+                                name="liquid" 
+                                value={liquid}
+                                onChange={(e)=>onInputChange(e)}
+                                required 
+                                autoFocus="true"></input>
+                            </div>
+                        </div>
+                        <div className="row w-50 position-relative start-50 translate-middle-x">
+                            <div className="text-center mt-5">
+                                <label htmlFor="Name" className="form-label">Plural Noun: </label>
+                                <input type={"text"} 
+                                className="form-control shadow" 
+                                placeholder="Enter a plural noun" 
+                                name="pluralNounOne" 
+                                value={pluralNounOne}
+                                onChange={(e)=>onInputChange(e)}
+                                required 
+                                autoFocus="true"></input>
+                            </div>
+                        </div>
                         <div className="row w-50 position-relative start-50 translate-middle-x">
                             <div className="text-center mt-5">
                                 <label htmlFor="Name" className="form-label">Noun: </label>
@@ -116,48 +184,9 @@ function Eragon() {
                                 <label htmlFor="Name" className="form-label">Adjective: </label>
                                 <input type={"text"} 
                                 className="form-control shadow" 
-                                placeholder="Enter an adjective" 
-                                name="adjectiveFive" 
-                                value={adjectiveFive}
-                                onChange={(e)=>onInputChange(e)}
-                                required 
-                                autoFocus="true"></input>
-                            </div>
-                        </div>
-                        <div className="row w-50 position-relative start-50 translate-middle-x">
-                            <div className="text-center mt-5">
-                                <label htmlFor="Name" className="form-label">Noun: </label>
-                                <input type={"text"} 
-                                className="form-control shadow" 
                                 placeholder="Enter a noun" 
-                                name="nounTwo" 
-                                value={nounTwo}
-                                onChange={(e)=>onInputChange(e)}
-                                required 
-                                autoFocus="true"></input>
-                            </div>
-                        </div>
-                        <div className="row w-50 position-relative start-50 translate-middle-x">
-                            <div className="text-center mt-5">
-                                <label htmlFor="Name" className="form-label">Adjective: </label>
-                                <input type={"text"} 
-                                className="form-control shadow" 
-                                placeholder="Enter an adjective" 
                                 name="adjectiveThree" 
                                 value={adjectiveThree}
-                                onChange={(e)=>onInputChange(e)}
-                                required 
-                                autoFocus="true"></input>
-                            </div>
-                        </div>
-                        <div className="row w-50 position-relative start-50 translate-middle-x">
-                            <div className="text-center mt-5">
-                                <label htmlFor="Name" className="form-label">Adjective: </label>
-                                <input type={"text"} 
-                                className="form-control shadow" 
-                                placeholder="Enter an adjective" 
-                                name="adjectiveFour" 
-                                value={adjectiveFour}
                                 onChange={(e)=>onInputChange(e)}
                                 required 
                                 autoFocus="true"></input>
@@ -169,8 +198,8 @@ function Eragon() {
                                 <input type={"text"} 
                                 className="form-control shadow" 
                                 placeholder="Enter a plural noun" 
-                                name="pluralNoun" 
-                                value={pluralNoun}
+                                name="pluralNounFive" 
+                                value={pluralNounFive}
                                 onChange={(e)=>onInputChange(e)}
                                 required 
                                 autoFocus="true"></input>
@@ -191,12 +220,25 @@ function Eragon() {
                         </div>
                         <div className="row w-50 position-relative start-50 translate-middle-x">
                             <div className="text-center mt-5">
-                                <label htmlFor="Name" className="form-label">Animal: </label>
+                                <label htmlFor="Name" className="form-label">Length of Time: </label>
                                 <input type={"text"} 
                                 className="form-control shadow" 
-                                placeholder="Enter an animal" 
-                                name="animal" 
-                                value={animal}
+                                placeholder="Enter a length of time" 
+                                name="lengthOfTimeOne" 
+                                value={lengthOfTimeOne}
+                                onChange={(e)=>onInputChange(e)}
+                                required 
+                                autoFocus="true"></input>
+                            </div>
+                        </div>
+                        <div className="row w-50 position-relative start-50 translate-middle-x">
+                            <div className="text-center mt-5">
+                                <label htmlFor="Name" className="form-label">Emotion: </label>
+                                <input type={"text"} 
+                                className="form-control shadow" 
+                                placeholder="Enter an emotion" 
+                                name="emotion" 
+                                value={emotion}
                                 onChange={(e)=>onInputChange(e)}
                                 required 
                                 autoFocus="true"></input>
@@ -208,8 +250,8 @@ function Eragon() {
                                 <input type={"text"} 
                                 className="form-control shadow" 
                                 placeholder="Enter an adjective" 
-                                name="adjectiveSix" 
-                                value={adjectiveSix}
+                                name="adjectiveFour" 
+                                value={adjectiveFour}
                                 onChange={(e)=>onInputChange(e)}
                                 required 
                                 autoFocus="true"></input>
@@ -217,12 +259,12 @@ function Eragon() {
                         </div>
                         <div className="row w-50 position-relative start-50 translate-middle-x">
                             <div className="text-center mt-5">
-                                <label htmlFor="Name" className="form-label">Number: </label>
+                                <label htmlFor="Name" className="form-label">Verb: </label>
                                 <input type={"text"} 
                                 className="form-control shadow" 
-                                placeholder="Enter a number" 
-                                name="number" 
-                                value={number}
+                                placeholder="Enter a verb" 
+                                name="verbOne" 
+                                value={verbOne}
                                 onChange={(e)=>onInputChange(e)}
                                 required 
                                 autoFocus="true"></input>
@@ -230,12 +272,12 @@ function Eragon() {
                         </div>
                         <div className="row w-50 position-relative start-50 translate-middle-x">
                             <div className="text-center mt-5">
-                                <label htmlFor="Name" className="form-label">Adjective: </label>
+                                <label htmlFor="Name" className="form-label">Plural Noun: </label>
                                 <input type={"text"} 
                                 className="form-control shadow" 
-                                placeholder="Enter an adjective" 
-                                name="adjectiveSeven" 
-                                value={adjectiveSeven}
+                                placeholder="Enter a plural noun" 
+                                name="pluralNounFour" 
+                                value={pluralNounFour}
                                 onChange={(e)=>onInputChange(e)}
                                 required 
                                 autoFocus="true"></input>
@@ -243,12 +285,12 @@ function Eragon() {
                         </div>
                         <div className="row w-50 position-relative start-50 translate-middle-x">
                             <div className="text-center mt-5">
-                                <label htmlFor="Name" className="form-label">Adjective: </label>
+                                <label htmlFor="Name" className="form-label">Plural Noun: </label>
                                 <input type={"text"} 
                                 className="form-control shadow" 
-                                placeholder="Enter an adjective" 
-                                name="adjectiveTwo" 
-                                value={adjectiveTwo}
+                                placeholder="Enter a plural noun" 
+                                name="pluralNounTwo" 
+                                value={pluralNounTwo}
                                 onChange={(e)=>onInputChange(e)}
                                 required 
                                 autoFocus="true"></input>
@@ -265,4 +307,4 @@ function Eragon() {
     )
 }
 
-export default Eragon;
+export default GameOfThrones;

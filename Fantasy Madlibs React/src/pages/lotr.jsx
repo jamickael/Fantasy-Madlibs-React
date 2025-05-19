@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 function Lotr() {
@@ -349,7 +349,7 @@ function Lotr() {
                         </div>
                         <br></br>
                         <button type="submit" className="btn btn-outline-primary m-4 shadow">Create Madlib!</button>
-                        <Link className="btn btn-outline-danger m-4 shadow" to="/">Cancel</Link>
+                        <button onClick={() => navigate('/')}>Cancel</button>
                     </form>
             </div>
         )}

@@ -19,7 +19,9 @@ function Home() {
             <br></br>
             <button onClick={() => navigate('/harrypotter')}>Harry Potter and the Sorceror's Stone</button>            
             <br></br>
-            <button onClick={() => navigate('/ledge')}>Ledge</button>        
+            <button onClick={() => navigate('/ledge')}>Ledge</button>
+            <br></br>  
+            <button onClick={() => navigate('/gameofthrones')}>Game of Thrones</button>    
         </div>
     )
 }
