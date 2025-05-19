@@ -1,21 +1,25 @@
 
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
+    let navigate = useNavigate();
+
     return (
         <div>
             <h1>Book Club Madlibs</h1>
             <p>Buckle up folks. You're in for a night of ridiculous, raunchy, and eXtrEamLy realistic stories.</p>
 
-            <Link className="btn btn-outline-primary" to="/fourthwing" style={{margin:5}}>Fourth Wing</Link>
+            <button onClick={() => navigate('/fourthwing')}>Fourth Wing</button>
             <br></br>
-            <Link className="btn btn-outline-primary" to="/acotar" style={{margin:5}}>A Court of Thorns and Roses</Link>
+            <button onClick={() => navigate('/acotar')}>A Court of Thorns and Roses</button>
             <br></br>
-            <Link className="btn btn-outline-primary" to="/lordoftherings" style={{margin:5}}>Lord of the Rings</Link>
+            <button onClick={() => navigate('/lotr')}>Lord of the Rings</button>            
             <br></br>
-            <Link className="btn btn-outline-primary" to="/harrypotter" style={{margin:5}}>Harry Potter and the Sorceror's Stone</Link>
+            <button onClick={() => navigate('/eragon')}>Eragon</button>            
             <br></br>
-            <Link className="btn btn-outline-primary" to="/ledge" style={{margin:5}}>Ledge</Link>
+            <button onClick={() => navigate('/harrypotter')}>Harry Potter and the Sorceror's Stone</button>            
+            <br></br>
+            <button onClick={() => navigate('/ledge')}>Ledge</button>        
         </div>
     )
 }

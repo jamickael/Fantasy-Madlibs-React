@@ -123,7 +123,7 @@ function FourthWing() {
                         <button onClick={() => setShowMadlib(false)}>Edit</button>
                         <br></br>
                         <p>Would you like to create another madlib?</p>
-                        <button onClick={resetMadlib}>Lord of the Rings again!</button>
+                        <button onClick={resetMadlib}>Fourth Wing again!</button>
                         <button onClick={() => navigate("/")}>Literally any other madlib.</button>
                     </div>
                 </div>
