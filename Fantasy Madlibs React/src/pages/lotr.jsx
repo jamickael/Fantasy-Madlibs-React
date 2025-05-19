@@ -57,8 +57,6 @@ function Lotr() {
     }
 
     //OnSubmit
-    //Need to cross reference all of the variables
-    //rename all noun objects to be more clear
     const onSubmit = (e) => {
         e.preventDefault();
         const capPlNoun = capitalize(pluralNoun);
