@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 
 
 function Acotar() {
@@ -33,6 +33,7 @@ function Acotar() {
         nounFour, verb, spanOfTime, adjectiveOneArticle, adjectiveFourArticle, adjectiveFiveArticle,
         nounThreeArticle, animalArticle, unpluralNoun} = madlib;
     const [showMadlib, setShowMadlib] = useState(false);
+    let navigate = useNavigate(); 
     
 
     //OnChange
@@ -83,6 +84,16 @@ function Acotar() {
         setShowMadlib(true);
     };
 
+    const resetMadlib = () => {
+        setMadlib({
+            number:"", nounOne:"", adjectiveFour:"", nounTwo:"", adjectiveOne:"", pluralNoun:"",
+            adjectiveTwo:"", nounThree:"", maleName:"", adjectiveThree:"", profession:"", adjectiveFive:"",
+            animal:"", adjectiveSix:"", nounFour:"", verb:"", spanOfTime:"", adjectiveOneArticle:"",
+            adjectiveFourArticle:"", adjectiveFiveArticle:"", nounThreeArticle:"", animalArticle:"", unpluralNoun:""
+        });
+        setShowMadlib(false);
+    };
+
 
     return (
         <div className="">
@@ -108,9 +119,11 @@ function Acotar() {
                     <br></br>
                     <br></br>
                     <div className="d-flex justify-content-center">
+                        <button onClick={() => setShowMadlib(false)}>Edit</button>
+                        <br></br>
                         <p>Would you like to create another madlib?</p>
-                        <Link className="btn btn-outline-primary margin-4 shadow" to="/acotar">A Court of Thorns and Roses again!</Link>
-                        <Link className="btn btn-outline-primary margin-4 shadow" to="/">A different madlib.</Link>
+                        <button onClick={resetMadlib}>A Court of Thorns and Roses again!</button>
+                        <button onClick={() => navigate("/")}>Literally any other madlib.</button>
                     </div>
                 </div>
             ) : (
@@ -323,7 +336,7 @@ function Acotar() {
                         </div>
                         <br></br>
                         <button type="submit" className="btn btn-outline-primary m-4 shadow">Create Madlib!</button>
-                        <Link className="btn btn-outline-danger m-4 shadow" to="/">Cancel</Link>
+                        <button onClick={() => navigate("/")}>Cancel</button>
                     </form>
             </div>
         )}

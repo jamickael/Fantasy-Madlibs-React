@@ -1,8 +1,9 @@
 import {useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 function Lotr() {
+    let navigate = useNavigate();
     const [madlib, setMadlib] = useState({
         verbTwo:"",
         adjectiveOne:"",
@@ -86,6 +87,15 @@ function Lotr() {
         setShowMadlib(true);
     };
 
+    const resetMadlib = () => {
+        setMadlib({
+            verbTwo:"", adjectiveOne:"", adjective:"", amount:"", liquid:"", adjectiveTwo:"", lastName:"", adjectiveEight:"", nounOne:"",
+            adjectiveFour:"", profession:"", adjectiveThree:"", direction:"", adjectiveFive:"", verb:"", adjectiveSix:"", pluralNoun:"",
+            adjectiveSeven:"", pluralizedNoun:"", adjectiveThreeArticle:"", adjectiveEightArticle:"", adjectiveSixArticle:""
+        });
+        setShowMadlib(false);
+    }
+
 
     return (
         <div className="">
@@ -110,9 +120,11 @@ function Lotr() {
                     <br></br>
                     <br></br>
                     <div className="d-flex justify-content-center">
+                        <button onClick={() => setShowMadlib(false)}>Edit</button>
+                        <br></br>
                         <p>Would you like to create another madlib?</p>
-                        <Link className="btn btn-outline-primary margin-4 shadow" to="/lordoftherings">Lord of the Rings again!</Link>
-                        <Link className="btn btn-outline-primary margin-4 shadow" to="/">A different madlib.</Link>
+                        <button onClick={resetMadlib}>Lord of the Rings again!</button>
+                        <button onClick={() => navigate("/")}>Literally any other madlib.</button>
                     </div>
                 </div>
             ) : (

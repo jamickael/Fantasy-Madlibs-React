@@ -1,8 +1,9 @@
 import {useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 function FourthWing() {
+    let navigate = useNavigate();
     const [madlib, setMadlib] = useState({
         adjectiveOne:"",
         pluralNoun:"",
@@ -73,6 +74,14 @@ function FourthWing() {
         setShowMadlib(true);
     };
 
+    const resetMadlib = () => {
+        setMadlib({
+            adjectiveOne:"", pluralNoun:"", adjectiveFive:"", number:"", verb:"", timePeriod:"", adjectiveTwo:"", pluralBodyPart:"", familyMember:"", maleName:"",
+            adjectiveThree:"", animal:"", color:"", pluralNounTwo:"", adjectiveFour:"", bodyPart:"", adjectiveOneArticle:"", adjectiveFiveArticle:"", animalCap:"" 
+        });
+        setShowMadlib(false);
+    }
+
 
     return (
         <div className="">
@@ -111,9 +120,11 @@ function FourthWing() {
                     <br></br>
                     <br></br>
                     <div className="d-flex justify-content-center">
+                        <button onClick={() => setShowMadlib(false)}>Edit</button>
+                        <br></br>
                         <p>Would you like to create another madlib?</p>
-                        <Link className="btn btn-outline-primary m-4 shadow" to=".">Fourth Wing again!</Link>
-                        <Link className="btn btn-outline-primary m-4 shadow" to="/">A different madlib.</Link>
+                        <button onClick={resetMadlib}>Lord of the Rings again!</button>
+                        <button onClick={() => navigate("/")}>Literally any other madlib.</button>
                     </div>
                 </div>
             ) : (
@@ -314,7 +325,7 @@ function FourthWing() {
                         </div>
                         <br></br>
                         <button type="submit" className="btn btn-outline-primary m-4 shadow">Create Madlib!</button>
-                        <Link className="btn btn-outline-danger m-4 shadow" to="/">Cancel</Link>
+                        <button onClick={() => navigate("/")}>Cancel</button>
                     </form>
             </div>
         )}
